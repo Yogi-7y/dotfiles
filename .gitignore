@@ -1,0 +1,5 @@
+.DS_Store
+dotfiles_env/
+
+claude_chats/
+.claudeignore
