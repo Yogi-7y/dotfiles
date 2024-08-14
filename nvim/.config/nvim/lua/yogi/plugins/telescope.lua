@@ -7,6 +7,7 @@ return {
     tag = "0.1.5",
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
+      print("telescope loaded")
       require("telescope").setup({
         pickers = {
           find_files = {
