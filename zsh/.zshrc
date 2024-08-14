@@ -11,3 +11,4 @@ source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 # Alias
 alias ls="eza --icons=always"
+alias cd="z"
