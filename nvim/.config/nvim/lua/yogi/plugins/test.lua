@@ -13,7 +13,7 @@ return {
 		neotest.setup({
 			adapters = {
 				require("neotest-dart")({
-					command = "dart",
+					command = "fvm flutter",
 				}),
 			},
 		})
