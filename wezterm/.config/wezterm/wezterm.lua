@@ -9,6 +9,7 @@ config = {
   window_close_confirmation = "NeverPrompt",
   font_size = 16,
   color_scheme = "Catppuccin Mocha",
+  term = "wezterm"
 }
 
 return config
