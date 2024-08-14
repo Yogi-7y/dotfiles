@@ -3,3 +3,5 @@ dotfiles_env/
 
 claude_chats/
 .claudeignore
+
+docs/
