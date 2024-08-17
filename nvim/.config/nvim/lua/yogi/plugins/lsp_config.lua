@@ -19,28 +19,21 @@ return {
       local lspconfig = require("lspconfig")
       local util = require("lspconfig.util")
 
-      local function enable_format_on_save(client, bufnr)
-        if client.supports_method("textDocument/formatting") then
-          vim.api.nvim_create_autocmd("BufWritePre", {
-            buffer = bufnr,
-            callback = function()
-              vim.lsp.buf.format({ async = false })
-            end,
-          })
-        end
-      end
+      -- local function enable_format_on_save(client, bufnr)
+      --   if client.supports_method("textDocument/formatting") then
+      --     vim.api.nvim_create_autocmd("BufWritePre", {
+      --       buffer = bufnr,
+      --       callback = function()
+      --         vim.lsp.buf.format({ async = false })
+      --       end,
+      --     })
+      --   end
+      -- end
 
-      lspconfig.lua_ls.setup({
-        on_attach = function(client, bufnr)
-          enable_format_on_save(client, bufnr)
-        end,
-      })
+      lspconfig.lua_ls.setup({})
 
       -- Dart LSP setup
       lspconfig.dartls.setup({
-        on_attach = function(client, bufnr)
-          enable_format_on_save(client, bufnr)
-        end,
         cmd = { "dart", "language-server", "--protocol=lsp" },
         filetypes = { "dart" },
         root_dir = lspconfig.util.root_pattern("pubspec.yaml", ".git"),
