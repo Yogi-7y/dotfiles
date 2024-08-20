@@ -78,12 +78,12 @@ return {
 			args = { "debug_adapter" },
 		}
 
-		vim.keymap.set("n", "<leader>dt", dap.toggle_breakpoint, {})
-		vim.keymap.set("n", "<leader>dc", dap.continue, {})
-		vim.keymap.set("n", "<leader>dr", dap.repl.open, {})
-		vim.keymap.set("n", "<leader>dl", dap.run_last, {})
-		vim.keymap.set("n", "<leader>di", dap.step_into, {})
-		vim.keymap.set("n", "<leader>do", dap.step_over, {})
-		vim.keymap.set("n", "<leader>dO", dap.step_out, {})
+		vim.keymap.set("n", "<leader>dt", dap.toggle_breakpoint, { desc = "Toggle breakpoint" })
+		vim.keymap.set("n", "<leader>dc", dap.continue, { desc = "Continue debugging" })
+		vim.keymap.set("n", "<leader>dr", dap.repl.open, { desc = "Open debug REPL" })
+		vim.keymap.set("n", "<leader>dl", dap.run_last, { desc = "Run last debug configuration" })
+		vim.keymap.set("n", "<leader>di", dap.step_into, { desc = "Step into" })
+		vim.keymap.set("n", "<leader>do", dap.step_over, { desc = "Step over" })
+		vim.keymap.set("n", "<leader>dO", dap.step_out, { desc = "Step out" })
 	end,
 }

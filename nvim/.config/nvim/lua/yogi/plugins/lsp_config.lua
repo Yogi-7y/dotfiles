@@ -41,15 +41,15 @@ return {
 				},
 			})
 
-			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
-			vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
-			vim.keymap.set("n", "<leader>gt", vim.lsp.buf.type_definition, {})
-			vim.keymap.set("n", "<leader>gi", vim.lsp.buf.implementation, {})
-			vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
-			vim.keymap.set("n", "<leader>dn", vim.diagnostic.goto_next, {})
-			vim.keymap.set("n", "<leader>dp", vim.diagnostic.goto_prev, {})
-			vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, {})
-			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
+			vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Show hover information" })
+			vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { desc = "Go to definition" })
+			vim.keymap.set("n", "<leader>gt", vim.lsp.buf.type_definition, { desc = "Go to type definition" })
+			vim.keymap.set("n", "<leader>gi", vim.lsp.buf.implementation, { desc = "Go to implementation" })
+			vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, { desc = "Find references" })
+			vim.keymap.set("n", "<leader>dn", vim.diagnostic.goto_next, { desc = "Go to next diagnostic" })
+			vim.keymap.set("n", "<leader>dp", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic" })
+			vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, { desc = "Rename symbol" })
+			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action" })
 		end,
 	},
 }
