@@ -2,7 +2,6 @@ return {
   "nvimtools/none-ls.nvim",
   config = function()
     local null_ls = require("null-ls")
-    nonels
     local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
     local on_attach = function(client, bufnr)
