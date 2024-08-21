@@ -1,10 +1,6 @@
 return {
 	"folke/which-key.nvim",
 	event = "VeryLazy",
-	init = function()
-		vim.o.timeout = true
-		vim.o.timeoutlen = 700
-	end,
 	keys = {
 		{
 			"<leader>?",
@@ -14,4 +10,11 @@ return {
 			desc = "Buffer Local Keymaps (whch key)",
 		},
 	},
+	config = function()
+		local which_key = require("which-key")
+
+		which_key.setup({
+			delay = 1500,
+		})
+	end,
 }
