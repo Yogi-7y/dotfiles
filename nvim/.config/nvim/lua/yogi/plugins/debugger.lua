@@ -40,7 +40,7 @@ return {
 			only_first_definition = true,
 			all_references = false,
 			clear_on_continue = false,
-			virt_text_pos = vim.fn.has("nvim-0.10") == 1 and "inline" or "eol",
+			virt_text_pos = "inline",
 			all_frames = false,
 			virt_lines = false,
 			virt_text_win_col = nil,
@@ -103,11 +103,23 @@ return {
 
 		-- Keymaps
 		vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, { desc = "Toggle breakpoint" })
+
+		vim.keymap.set("n", "<leader>dB", function()
+			dap.set_breakpoint(vim.fn.input("Condition:"))
+		end, { desc = "Conditional breakpoint" })
+
+		vim.keymap.set("n", "<leader>dl", function()
+			dap.set_breakpoint(nil, nil, vim.fn.input("Log:"))
+		end, { desc = "Log point" })
+
+		vim.keymap.set("n", "<leader>dc", dap.run_to_cursor, { desc = "Run to cursor" })
+
 		vim.keymap.set("n", "<F5>", dap.continue, { desc = "Continue debugging" })
 		vim.keymap.set("n", "<F6>", dap.step_into, { desc = "Step into" })
 		vim.keymap.set("n", "<F7>", dap.step_over, { desc = "Step over" })
 		vim.keymap.set("n", "<F8>", dap.step_out, { desc = "Step out" })
 		vim.keymap.set("n", "<F9>", dap.restart, { desc = "Restart" })
+
 		vim.keymap.set("n", "<leader>du", dapui.open, { desc = "Open DAP UI" })
 		vim.keymap.set("n", "<leader>ds", toggle_sidebar, { desc = "Toggle sidebar" })
 		vim.keymap.set("n", "<leader>dr", toggle_repl, { desc = "Toggle repl" })

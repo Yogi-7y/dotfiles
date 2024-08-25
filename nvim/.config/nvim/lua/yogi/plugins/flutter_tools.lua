@@ -34,6 +34,9 @@ return {
 					renameFilesWithClasses = "prompt",
 				},
 			},
+			register_configurations = function(_)
+				require("dap").configurations.dart = {} -- This line clears the default configurations
+			end,
 		})
 	end,
 }
