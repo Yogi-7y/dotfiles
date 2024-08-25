@@ -9,3 +9,4 @@ keymap.set("n", "<c-h>", ":wincmd h<CR>", { desc = "Move to the left pane" })
 keymap.set("n", "<c-l>", ":wincmd l<CR>", { desc = "Move to the right pane" })
 
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
+keymap.set("n", "<leader>bb", require("yogi.utils.toogle_boolean").toogle, { desc = "Toogle boolean" })
