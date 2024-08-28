@@ -21,6 +21,7 @@ return {
 		"hrsh7th/nvim-cmp",
 		config = function()
 			local cmp = require("cmp")
+			local lspkind = require("lspkind")
 
 			cmp.setup({
 				window = {
@@ -38,6 +39,7 @@ return {
 					}),
 				}),
 				sources = cmp.config.sources({
+					{ name = "copilot" },
 					{ name = "nvim_lua" },
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
@@ -46,6 +48,9 @@ return {
 				}),
 				experimental = {
 					ghost_text = true,
+				},
+				formatting = {
+					format = lspkind.cmp_format({}),
 				},
 			})
 		end,

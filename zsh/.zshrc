@@ -50,3 +50,13 @@ httpnvim() {
   http "$@" | jq . | nvim -R -c "set filetype=json" -
 }
 
+
+# Created by `pipx` on 2024-08-25 12:29:57
+export PATH="$PATH:/Users/yogi/.local/bin"
+#compdef claudesync
+_claudesync() {
+  eval $(env COMMANDLINE="${words[1,$CURRENT]}" _CLAUDESYNC_COMPLETE=complete-zsh  claudesync)
+}
+if [[ "$(basename -- ${(%):-%x})" != "_claudesync" ]]; then
+  compdef _claudesync claudesync
+fi

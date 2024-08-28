@@ -8,9 +8,12 @@ return {
 
 			copilot.setup({
 				suggestion = {
-					enabled = true,
-					auto_trigger = true,
+					enabled = false,
+					keymap = {
+						accept = "<Tab>",
+					},
 				},
+				panel = { enabled = false },
 			})
 		end,
 	},
@@ -21,5 +24,18 @@ return {
 			{ "nvim-lua/plenary.nvim" },
 		},
 		build = "make tiktoken",
+		config = function()
+			local copilot_chat = require("CopilotChat")
+
+			copilot_chat.setup({})
+		end,
+	},
+	{
+		"zbirenbaum/copilot-cmp",
+		config = function()
+			local copilot_cmp = require("copilot_cmp")
+
+			copilot_cmp.setup({})
+		end,
 	},
 }

@@ -10,22 +10,32 @@ return {
 			local telescope = require("telescope")
 			local builtin = require("telescope.builtin")
 
+			local function is_in_flutter_example()
+				local cwd = vim.fn.getcwd()
+				return string.match(cwd, "example$")
+			end
+
+			local find_command = {
+				"fd",
+				"--type",
+				"f",
+				"--hidden",
+				"--follow",
+				"--exclude",
+				".git",
+				"--search-path",
+				".",
+			}
+
+			if is_in_flutter_example() then
+				table.insert(find_command, "--search-path")
+				table.insert(find_command, "..")
+			end
+
 			telescope.setup({
 				pickers = {
 					find_files = {
-						find_command = {
-							"fd",
-							"--type",
-							"f",
-							"--hidden",
-							"--follow",
-							"--exclude",
-							".git",
-							"--search-path",
-							".",
-							"--search-path",
-							"/Users/yogi/Development/personal_projects/notion_db_sdk",
-						},
+						find_command = find_command,
 					},
 				},
 				defaults = {
