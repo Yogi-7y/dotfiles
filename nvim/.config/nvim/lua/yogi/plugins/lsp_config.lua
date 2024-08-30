@@ -20,27 +20,6 @@ return {
 
 			lspconfig.lua_ls.setup({})
 
-			-- Dart LSP setup
-			lspconfig.dartls.setup({
-				cmd = { "dart", "language-server", "--protocol=lsp" },
-				filetypes = { "dart" },
-				root_dir = lspconfig.util.root_pattern("pubspec.yaml", ".git"),
-				init_options = {
-					closingLabels = true,
-					flutterOutline = true,
-					onlyAnalyzeProjectsWithOpenFiles = true,
-					outline = true,
-					suggestFromUnimportedLibraries = true,
-				},
-				settings = {
-					dart = {
-						completeFunctionCalls = true,
-						showTodos = true,
-						lineLength = 100,
-					},
-				},
-			})
-
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Show hover information" })
 			vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { desc = "Go to definition" })
 			vim.keymap.set("n", "<leader>gt", vim.lsp.buf.type_definition, { desc = "Go to type definition" })
