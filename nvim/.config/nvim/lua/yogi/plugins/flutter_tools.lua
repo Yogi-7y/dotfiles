@@ -21,6 +21,9 @@ return {
 					app_version = true,
 				},
 			},
+			project_config = {
+				enabled = true,
+			},
 			widget_guides = { enabled = true },
 			dev_log = { enabled = true, open_cmd = "tabedit" },
 			lsp = {
@@ -35,7 +38,7 @@ return {
 				},
 			},
 			register_configurations = function(_)
-				require("dap").configurations.dart = {} -- This line clears the default configurations
+				require("dap.ext.vscode").load_launchjs()
 			end,
 		})
 	end,
