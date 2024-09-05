@@ -11,8 +11,25 @@ return {
       local builtin = require("telescope.builtin")
 
       telescope.setup({
+
         defaults = {
           path_display = { "smart" },
+          file_ignore_patterns = { ".git", "node_modules", "vendor" },
+        },
+        pickers = {
+          find_files = {
+            theme = "dropdown",
+            hidden = true,
+          },
+          live_grep = {
+            theme = "dropdown",
+          },
+          buffers = {
+            theme = "dropdown",
+          },
+          help_tags = {
+            theme = "dropdown",
+          },
         },
         extensions = {
           ["ui-select"] = {
