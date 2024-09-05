@@ -24,17 +24,6 @@ echo -ne '\e[6 q'
 # Use steady beam shape cursor for each new prompt.
 preexec() { echo -ne '\e[6 q' ;}
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
-eval "$(fzf --zsh)"
-eval "$(zoxide init zsh)"
-eval "$(starship init zsh)"
-
-export ANDROID_HOME=$HOME/Library/Android/sdk/
-export PATH=$PATH:$ANDROID_HOME/emulator
-
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 # Alias
 alias ls="eza --icons=always"
 alias cd="z"
@@ -50,6 +39,15 @@ httpnvim() {
   http "$@" | jq . | nvim -R -c "set filetype=json" -
 }
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(fzf --zsh)"
+eval "$(zoxide init zsh)"
+eval "$(starship init zsh)"
 
-# Created by `pipx` on 2024-08-25 12:29:57
-export PATH="$PATH:/Users/yogi/.local/bin"
+export ANDROID_HOME=$HOME/Library/Android/sdk/
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools/
+export PATH=$PATH:$HOME/.pub-cache/bin
+
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
