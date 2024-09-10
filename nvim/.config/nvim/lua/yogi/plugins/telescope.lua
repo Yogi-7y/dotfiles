@@ -18,17 +18,7 @@ return {
         },
         pickers = {
           find_files = {
-            theme = "dropdown",
             hidden = true,
-          },
-          live_grep = {
-            theme = "dropdown",
-          },
-          buffers = {
-            theme = "dropdown",
-          },
-          help_tags = {
-            theme = "dropdown",
           },
         },
         extensions = {

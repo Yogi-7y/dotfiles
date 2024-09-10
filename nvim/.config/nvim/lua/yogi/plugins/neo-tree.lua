@@ -8,7 +8,6 @@ return {
   },
   config = function()
     vim.keymap.set("n", "<C-e>", ":Neotree filesystem toggle right<CR>", {})
-    vim.keymap.set("n", "<leader>bf", ":Neotree buffers togglw float<CR>", {})
 
     require("neo-tree").setup({
       filesystem = {
