@@ -25,3 +25,5 @@ opt.clipboard:append("unnamedplus") -- Use system clipboard
 
 opt.laststatus = 3
 opt.splitkeep = "screen"
+
+opt.spell = true
