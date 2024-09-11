@@ -39,6 +39,12 @@ httpnvim() {
   http "$@" | jq . | nvim -R -c "set filetype=json" -
 }
 
+
+# DVM
+if [[ -f ~/.dvm/scripts/dvm ]]; then
+  . ~/.dvm/scripts/dvm
+fi
+
 eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
@@ -51,3 +57,5 @@ export PATH=$PATH:$HOME/.pub-cache/bin
 
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+
