@@ -53,6 +53,7 @@ return {
       local fzf = require("fzf-lua")
 
       vim.keymap.set("n", "<leader>sf", fzf.files, { desc = "Search Files" })
+      vim.keymap.set("n", "<leader>sb", fzf.buffers, { desc = "Search Files" })
 
       fzf.setup({
         "fzf-native",
