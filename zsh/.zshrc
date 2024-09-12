@@ -3,7 +3,6 @@ bindkey -v
 
 KEYTIMEOUT=1 # Reduce mode switching delay
 VI_MODE_SET_CURSOR=true # Ensure cursor shape changes immediately after mode switch
-
 # Vi mode cursor shape
 function zle-keymap-select {
   if [[ ${KEYMAP} == vicmd ]] ||
@@ -59,3 +58,6 @@ source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"

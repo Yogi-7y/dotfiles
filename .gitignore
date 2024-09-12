@@ -5,3 +5,4 @@ claude_chats/
 .claudeignore
 
 docs/
+.claudesync/
