@@ -49,6 +49,10 @@ eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 
+# Initialize Atuin
+eval "$(atuin init zsh --disable-up-arrow)"
+
+
 export ANDROID_HOME=$HOME/Library/Android/sdk/
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools/
