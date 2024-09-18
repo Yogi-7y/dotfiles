@@ -25,7 +25,11 @@ return {
 				null_ls.builtins.formatting.stylua,
 				null_ls.builtins.formatting.prettier,
 				null_ls.builtins.formatting.dart_format.with({
-					extra_args = { "--line-length", "100" },
+					extra_args = function()
+						local path = vim.fn.expand("%:p")
+						local line_length = path:find("^/Users/yogi") and 100 or 80
+						return { "--line-length", tostring(line_length) }
+					end,
 				}),
 			},
 		})
