@@ -1,6 +1,22 @@
 vim.g.mapleader = " "
 
 local keymap = vim.keymap
+local opts = { noremap = true, silent = true }
+
+-- Resize windows
+keymap.set("n", "<C-Up>", "<cmd>resize +2<CR>", { desc = "Increase window height" })
+keymap.set("n", "<C-Down>", "<cmd>resize -2<CR>", { desc = "Decrease window height" })
+keymap.set("n", "<C-Right>", "<cmd>vertical resize -2<CR>", { desc = "Decrease window width" })
+keymap.set("n", "<C-Left>", "<cmd>vertical resize +2<CR>", { desc = "Increase window width" })
+
+-- Split windows
+keymap.set("n", "<leader>sv", ":vsplit<CR>", { desc = "Split window vertically" })
+keymap.set("n", "<leader>sh", ":split<CR>", { desc = "Split window horizontally" })
+
+-- Focus in and out of windows
+keymap.set("n", "<leader>wo", "<C-w>o", { desc = "Focus only on current window (close others)" })
+keymap.set("n", "<leader>ww", "<C-w>w", { desc = "Cycle through windows" })
+keymap.set("n", "<leader>wr", "<C-w>r", { desc = "Rotate windows" })
 
 -- Navigate vim panes
 keymap.set("n", "<c-k>", ":wincmd k<CR>", { desc = "Move to the pane above" })
