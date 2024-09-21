@@ -26,7 +26,7 @@ return {
 				enabled = true,
 			},
 			widget_guides = { enabled = true },
-			dev_log = { enabled = true, open_cmd = "tabedit" },
+			dev_log = { enabled = true, open_cmd = "edit" },
 			lsp = {
 				color = {
 					enabled = true,
