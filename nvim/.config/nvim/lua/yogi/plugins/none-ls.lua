@@ -42,7 +42,8 @@ return {
 		})
 
 		vim.keymap.set("n", "<leader>gf", function()
-			format(0)
+			local bufnr = vim.api.nvim_get_current_buf()
+			format(bufnr)
 		end, { desc = "Format file" })
 	end,
 }
