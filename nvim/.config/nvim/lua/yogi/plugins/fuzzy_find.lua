@@ -12,7 +12,6 @@ return {
 		dependencies = { "nvim-lua/plenary.nvim" },
 		config = function()
 			local telescope = require("telescope")
-			local builtin = require("telescope.builtin")
 
 			telescope.setup({
 				defaults = {
@@ -37,11 +36,6 @@ return {
 				},
 			})
 
-			-- vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "Search Files" })
-			-- vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "Live grep" })
-			-- vim.keymap.set("n", "<leader>sb", builtin.buffers, { desc = "Find buffers" })
-			-- vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "Find help tags" })
-
 			require("telescope").load_extension("ui-select")
 			telescope.load_extension("fzf")
 		end,
@@ -54,11 +48,18 @@ return {
 
 			vim.keymap.set("n", "<leader>sf", fzf.files, { desc = "Search Files" })
 			vim.keymap.set("n", "<leader>sb", fzf.buffers, { desc = "Search Files" })
+			vim.keymap.set("n", "<leader>sg", fzf.live_grep, { desc = "Live Grep" })
 
 			fzf.setup({
 				files = {
 					fzf_opts = {
 						["--keep-right"] = "",
+					},
+				},
+				grep = {
+					fzf_opts = {
+						["--delimiter"] = ":",
+						["--with-nth"] = "1",
 					},
 				},
 				winopts = {
