@@ -61,6 +61,12 @@ return {
 						["--keep-right"] = "",
 					},
 				},
+				winopts = {
+					preview = {
+						layout = "horizontal",
+						horizontal = "down:70%",
+					},
+				},
 			})
 		end,
 	},
