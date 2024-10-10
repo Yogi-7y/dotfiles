@@ -48,7 +48,7 @@ return {
 
 			vim.keymap.set("n", "<leader>sf", fzf.files, { desc = "Search Files" })
 			vim.keymap.set("n", "<leader>sb", fzf.buffers, { desc = "Search Files" })
-			vim.keymap.set("n", "<leader>sg", fzf.live_grep, { desc = "Live Grep" })
+			vim.keymap.set("n", "<leader>sg", fzf.live_grep_native, { desc = "Live Grep" })
 
 			fzf.setup({
 				files = {
