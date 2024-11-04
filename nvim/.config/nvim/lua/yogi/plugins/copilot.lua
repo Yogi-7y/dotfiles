@@ -13,7 +13,10 @@ return {
 						accept = "<Tab>",
 					},
 				},
-				panel = { enabled = false },
+				panel = { enabled = true },
+				filetypes = {
+					markdown = true,
+				},
 			})
 		end,
 	},
