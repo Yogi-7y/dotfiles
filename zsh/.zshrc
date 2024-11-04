@@ -27,6 +27,18 @@ preexec() { echo -ne '\e[6 q' ;}
 alias ls="eza --icons=always"
 alias cd="z"
 
+# Git Aliases
+alias g="git"
+alias gs="git status"
+alias ga="git add"
+alias gc="git commit"
+alias gp="git push"
+alias gpl="git pull"
+alias gl="git log"
+alias gd="git diff"
+alias gsw="git switch"
+
+
 # Utility
 httpnvim() {
   if [ "$#" -lt 1 ]; then
