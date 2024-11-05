@@ -18,6 +18,7 @@ return {
 		config = function()
 			local lspconfig = require("lspconfig")
 
+			-- Lua LSP
 			lspconfig.lua_ls.setup({
 				on_attach = function(client, bufnr)
 					local filepath = vim.api.nvim_buf_get_name(bufnr)
@@ -35,6 +36,23 @@ return {
 					end
 					return lspconfig.util.find_git_ancestor(fname) or vim.loop.os_homedir()
 				end,
+			})
+
+			-- Dart LSP
+			lspconfig.dartls.setup({
+				cmd = { "dart", "language-server", "--protocol=lsp" },
+				filetypes = { "dart" },
+				init_options = {
+					closingLabels = true,
+					onlyAnalyzeProjectsWithOpenFiles = true,
+					outline = true,
+				},
+				settings = {
+					dart = {
+						completeFunctionCalls = true,
+						showTodos = true,
+					},
+				},
 			})
 
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Show hover information" })
