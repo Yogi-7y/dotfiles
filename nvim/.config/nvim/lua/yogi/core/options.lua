@@ -6,8 +6,11 @@ opt.number = true
 -- Tabs & Indentation
 opt.tabstop = 2
 opt.shiftwidth = 2
+opt.softtabstop = 2
 opt.expandtab = true
-opt.autoindent = true
+opt.smartindent = true
+
+vim.opt.swapfile = false
 
 -- Search
 opt.ignorecase = true
