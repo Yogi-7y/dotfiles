@@ -30,3 +30,6 @@ opt.laststatus = 3
 opt.splitkeep = "screen"
 
 opt.spell = true
+
+opt.formatoptions:append("r") -- Continue comments when pressing Enter
+opt.formatoptions:append("o") -- Continue comments when pressing o or O
