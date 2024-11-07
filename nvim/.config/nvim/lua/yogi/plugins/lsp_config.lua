@@ -45,10 +45,7 @@ return {
 				cmd = { "dart", "language-server", "--protocol=lsp" },
 				root_dir = function(fname)
 					local root = util.root_pattern("pubspec.yaml", ".git")(fname)
-					-- Debug logging
-					print("Found root: " .. tostring(root))
 					if root and dart_utils.is_flutter_project(root) then
-						print("Flutter project detected, not activating dartls")
 						return nil
 					end
 					return root
