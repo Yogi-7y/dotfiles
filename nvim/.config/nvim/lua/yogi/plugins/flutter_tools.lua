@@ -1,64 +1,70 @@
-return {}
--- return {
--- 	"akinsho/flutter-tools.nvim",
--- 	lazy = false,
--- 	dependencies = {
--- 		"nvim-lua/plenary.nvim",
--- 	},
--- 	config = function()
--- 		local flutter_tools = require("flutter-tools")
---
--- 		flutter_tools.setup({
--- 			debugger = {
--- 				enabled = true,
--- 				run_via_dap = true,
--- 				exception_breakpoints = {},
--- 			},
--- 			flutter_path = vim.fn.expand("$HOME/fvm/versions/3.24.3/bin/flutter"),
--- 			fvm = true,
--- 			outline = { auto_open = false },
--- 			decoration = {
--- 				statusline = {
--- 					device = true,
--- 					app_version = true,
--- 				},
--- 			},
--- 			project_config = {
--- 				enabled = true,
--- 			},
--- 			widget_guides = { enabled = true },
--- 			dev_log = { enabled = true, open_cmd = "edit" },
--- 			lsp = {
--- 				color = {
--- 					enabled = true,
--- 					background = false,
--- 					virtual_text = true,
--- 				},
--- 				settings = {
--- 					showtodos = true,
--- 					renameFilesWithClasses = "prompt",
--- 					onlyAnalyzeProjectsWithOpenFiles = true,
--- 					analysisExcludedFolders = {
--- 						"build",
--- 						".dart_tool",
--- 						".idea",
--- 						".pub",
--- 						".vscode",
--- 						vim.fn.expand("$HOME/.pub-cache"),
--- 					},
--- 					lineLength = (function()
--- 						local user = vim.fn.expand("$USER")
--- 						return user:find("yogi") and 100 or 80
--- 					end)(),
--- 				},
--- 			},
--- 			register_configurations = function(_)
--- 				require("dap.ext.vscode").load_launchjs()
--- 			end,
--- 		})
---
--- 		local keymap = vim.keymap
---
--- 		keymap.set("n", "<leader>fr", "<Cmd>FlutterRun<CR>", { desc = "Run Flutter" })
--- 	end,
--- }
+return {
+	"akinsho/flutter-tools.nvim",
+	lazy = false,
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+	},
+	config = function()
+		local flutter_tools = require("flutter-tools")
+		local dart_utils = require("yogi.utils.dart")
+
+		flutter_tools.setup({
+			debugger = {
+				enabled = true,
+				run_via_dap = true,
+				exception_breakpoints = {},
+			},
+			flutter_path = vim.fn.expand("$HOME/fvm/versions/3.24.3/bin/flutter"),
+			fvm = true,
+			outline = { auto_open = false },
+			decoration = {
+				statusline = {
+					device = true,
+					app_version = true,
+				},
+			},
+			project_config = {
+				enabled = true,
+			},
+			widget_guides = { enabled = true },
+			dev_log = { enabled = true, open_cmd = "edit" },
+			lsp = {
+				color = {
+					enabled = true,
+					background = false,
+					virtual_text = true,
+				},
+				settings = {
+					showtodos = true,
+					renameFilesWithClasses = "prompt",
+					onlyAnalyzeProjectsWithOpenFiles = true,
+					analysisExcludedFolders = {
+						"build",
+						".dart_tool",
+						".idea",
+						".pub",
+						".vscode",
+						vim.fn.expand("$HOME/.pub-cache"),
+					},
+					lineLength = (function()
+						local user = vim.fn.expand("$USER")
+						return user:find("yogi") and 100 or 80
+					end)(),
+				},
+				on_attach = function(client, bufnr)
+					local root = client.config.root_dir
+					if not dart_utils.is_flutter_project(root) then
+						return false
+					end
+				end,
+			},
+			register_configurations = function(_)
+				require("dap.ext.vscode").load_launchjs()
+			end,
+		})
+
+		local keymap = vim.keymap
+
+		keymap.set("n", "<leader>fr", "<Cmd>FlutterRun<CR>", { desc = "Run Flutter" })
+	end,
+}

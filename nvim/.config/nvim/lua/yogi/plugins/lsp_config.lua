@@ -17,6 +17,8 @@ return {
 		"neovim/nvim-lspconfig",
 		config = function()
 			local lspconfig = require("lspconfig")
+			local util = require("lspconfig.util")
+			local dart_utils = require("yogi.utils.dart")
 
 			-- Lua LSP
 			lspconfig.lua_ls.setup({
@@ -41,6 +43,16 @@ return {
 			-- Dart LSP
 			lspconfig.dartls.setup({
 				cmd = { "dart", "language-server", "--protocol=lsp" },
+				root_dir = function(fname)
+					local root = util.root_pattern("pubspec.yaml", ".git")(fname)
+					-- Debug logging
+					print("Found root: " .. tostring(root))
+					if root and dart_utils.is_flutter_project(root) then
+						print("Flutter project detected, not activating dartls")
+						return nil
+					end
+					return root
+				end,
 				filetypes = { "dart" },
 				init_options = {
 					closingLabels = true,
