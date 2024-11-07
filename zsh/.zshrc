@@ -23,6 +23,21 @@ echo -ne '\e[6 q'
 # Use steady beam shape cursor for each new prompt.
 preexec() { echo -ne '\e[6 q' ;}
 
+# Environment variables (putting these first)
+export ANDROID_HOME=$HOME/Library/Android/sdk/
+export PYENV_ROOT="$HOME/.pyenv"
+
+# Initialize DVM early
+if [[ -f ~/.dvm/scripts/dvm ]]; then
+  . ~/.dvm/scripts/dvm
+fi
+
+# Path modifications (after DVM but before other tools)
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+export PATH="$PATH:$ANDROID_HOME/emulator"
+export PATH="$PATH:$ANDROID_HOME/platform-tools/"
+export PATH="$PATH:$HOME/.pub-cache/bin"
+
 # Alias
 alias ls="eza --icons=always"
 alias cd="z"
@@ -38,24 +53,16 @@ alias gl="git log"
 alias gd="git diff"
 alias gsw="git switch"
 
-
 # Utility
 httpnvim() {
   if [ "$#" -lt 1 ]; then
     echo "Usage: httpnvim <httpie-options>"
     return 1
   fi
-
-  # Use httpie to get JSON output and format it with jq
   http "$@" | jq . | nvim -R -c "set filetype=json" -
 }
 
-
-# DVM
-if [[ -f ~/.dvm/scripts/dvm ]]; then
-  . ~/.dvm/scripts/dvm
-fi
-
+# Tool initializations (after PATH setup)
 eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
@@ -63,17 +70,11 @@ eval "$(starship init zsh)"
 eval "$(pyenv init -)"
 eval $(thefuck --alias)
 
-export ANDROID_HOME=$HOME/Library/Android/sdk/
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/platform-tools/
-export PATH=$PATH:$HOME/.pub-cache/bin
-
+# Plugin sources
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-
+# Atuin setup (at the end since it's optional)
 atuin-setup() {
     if ! command -v atuin &> /dev/null; then
         echo "atuin not found. Please install it first."
@@ -123,6 +124,3 @@ atuin-setup() {
 }
 
 atuin-setup
-
-
-
