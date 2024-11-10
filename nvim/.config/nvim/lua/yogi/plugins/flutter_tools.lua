@@ -24,13 +24,16 @@ return {
 			},
 			fvm = true,
 			outline = { auto_open = false },
-			project_config = {
-				enabled = true,
-			},
 			widget_guides = { enabled = true },
 			dev_log = {
 				enabled = true,
 				open_cmd = "tabedit",
+				filter = function(line)
+					if line:match("^D/EGL") then
+						return false
+					end
+					return true
+				end,
 			},
 			lsp = {
 				color = {
