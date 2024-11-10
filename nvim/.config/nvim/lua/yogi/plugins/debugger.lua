@@ -14,7 +14,7 @@ return {
 			layouts = {
 				{
 					elements = {
-						"breakpoints",
+						"stacks",
 						"scopes",
 						"watches",
 					},
@@ -40,7 +40,7 @@ return {
 			only_first_definition = true,
 			all_references = false,
 			clear_on_continue = false,
-			virt_text_pos = "inline",
+			virt_text_pos = "eol",
 			all_frames = false,
 			virt_lines = false,
 			virt_text_win_col = nil,
@@ -64,14 +64,6 @@ return {
 
 		dap.listeners.before.launch.dapui_config = function()
 			open_repl_only()
-		end
-
-		dap.listeners.after.event_terminated.dapui_config = function()
-			dapui.close({ force = true })
-		end
-
-		dap.listeners.after.event_exited.dapui_config = function()
-			dapui.close({ force = true })
 		end
 
 		-- Theming
@@ -101,6 +93,17 @@ return {
 			args = { "debug_adapter" },
 		}
 
+		dap.configurations.dart = {
+			{
+				type = "dart",
+				request = "launch",
+				name = "Launch Dart Program",
+				program = "${file}",
+				cwd = "${workspaceFolder}",
+				args = {},
+			},
+		}
+
 		-- Keymaps
 		vim.keymap.set("n", "<leader>db", dap.toggle_breakpoint, { desc = "Toggle breakpoint" })
 
@@ -114,16 +117,16 @@ return {
 
 		vim.keymap.set("n", "<leader>dc", dap.run_to_cursor, { desc = "Run to cursor" })
 
-		vim.keymap.set("n", "<F5>", function()
+		vim.keymap.set("n", "<leader>dd", function()
 			dap.continue()
 			vim.cmd("sleep 100m")
 			vim.cmd("redraw")
 		end, { desc = "Continue debugging" })
 
-		vim.keymap.set("n", "<F6>", dap.step_into, { desc = "Step into" })
-		vim.keymap.set("n", "<F7>", dap.step_over, { desc = "Step over" })
-		vim.keymap.set("n", "<F8>", dap.step_out, { desc = "Step out" })
-		vim.keymap.set("n", "<F9>", dap.restart, { desc = "Restart" })
+		vim.keymap.set("n", "6", dap.step_into, { desc = "Step into" })
+		vim.keymap.set("n", "7", dap.step_over, { desc = "Step over" })
+		vim.keymap.set("n", "8", dap.step_out, { desc = "Step out" })
+		vim.keymap.set("n", "9", dap.restart, { desc = "Restart" })
 
 		vim.keymap.set("n", "<leader>du", dapui.open, { desc = "Open DAP UI" })
 		vim.keymap.set("n", "<leader>ds", toggle_sidebar, { desc = "Toggle sidebar" })

@@ -10,6 +10,12 @@ opt.softtabstop = 2
 opt.expandtab = true
 opt.smartindent = true
 
+opt.wrap = true
+opt.linebreak = true
+opt.showbreak = "↪"
+opt.textwidth = 0
+opt.wrapmargin = 0
+
 vim.opt.swapfile = false
 
 -- Search

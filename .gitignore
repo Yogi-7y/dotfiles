@@ -6,3 +6,6 @@ claude_chats/
 
 docs/
 .claudesync/
+
+# FVM Version Cache
+.fvm/

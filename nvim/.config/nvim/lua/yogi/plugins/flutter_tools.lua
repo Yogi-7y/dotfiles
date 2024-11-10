@@ -5,29 +5,33 @@ return {
 		"nvim-lua/plenary.nvim",
 	},
 	config = function()
+		vim.notify("configuring flutter-tools")
 		local flutter_tools = require("flutter-tools")
 		local dart_utils = require("yogi.utils.dart")
 
 		flutter_tools.setup({
-			debugger = {
-				enabled = true,
-				run_via_dap = true,
-				exception_breakpoints = {},
-			},
-			flutter_path = vim.fn.expand("$HOME/fvm/versions/3.24.3/bin/flutter"),
-			fvm = true,
-			outline = { auto_open = false },
 			decoration = {
 				statusline = {
-					device = true,
 					app_version = true,
+					device = true,
+					project_config = true,
 				},
 			},
+			debugger = {
+				enabled = true,
+				exception_breakpoints = {},
+				evaluate_to_string_in_debug_views = true,
+			},
+			fvm = true,
+			outline = { auto_open = false },
 			project_config = {
 				enabled = true,
 			},
 			widget_guides = { enabled = true },
-			dev_log = { enabled = true, open_cmd = "edit" },
+			dev_log = {
+				enabled = true,
+				open_cmd = "tabedit",
+			},
 			lsp = {
 				color = {
 					enabled = true,
@@ -51,20 +55,18 @@ return {
 						return user:find("yogi") and 100 or 80
 					end)(),
 				},
-				on_attach = function(client, bufnr)
+				on_attach = function(client, _)
 					local root = client.config.root_dir
 					if not dart_utils.is_flutter_project(root) then
 						return false
 					end
 				end,
 			},
-			register_configurations = function(_)
-				require("dap.ext.vscode").load_launchjs()
-			end,
 		})
 
 		local keymap = vim.keymap
 
+		require("telescope").load_extension("flutter")
 		keymap.set("n", "<leader>fr", "<Cmd>FlutterRun<CR>", { desc = "Run Flutter" })
 	end,
 }
