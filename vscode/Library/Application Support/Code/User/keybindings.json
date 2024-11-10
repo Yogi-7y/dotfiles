@@ -87,4 +87,45 @@
     "command": "editor.action.addSelectionToNextFindMatch",
     "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus)"
   },
+  // Debugging
+  {
+    "key": "space d b",
+    "command": "editor.debug.action.toggleBreakpoint",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "key": "space d c",
+    "command": "editor.debug.action.runToCursor",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "key": "space d d",
+    "command": "workbench.action.debug.continue",
+    "when": "vim.mode == 'Normal' && debuggable"
+  },
+  {
+    "key": "6",
+    "command": "workbench.action.debug.stepInto",
+    "when": "vim.mode == 'Normal' && debuggable"
+  },
+  {
+    "key": "7",
+    "command": "workbench.action.debug.stepOver",
+    "when": "vim.mode == 'Normal' && debuggable"
+  },
+  {
+    "key": "8",
+    "command": "workbench.action.debug.stepOut",
+    "when": "vim.mode == 'Normal' && debuggable"
+  },
+  {
+    "key": "9",
+    "command": "workbench.action.debug.restart",
+    "when": "vim.mode == 'Normal' && debuggable"
+  },
+  {
+    "key": "space d x",
+    "command": "workbench.action.debug.stop",
+    "when": "vim.mode == 'Normal' && debuggable"
+  }
 ]
