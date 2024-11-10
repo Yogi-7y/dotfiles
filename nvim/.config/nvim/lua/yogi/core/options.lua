@@ -39,3 +39,10 @@ opt.spell = true
 
 opt.formatoptions:append("r") -- Continue comments when pressing Enter
 opt.formatoptions:append("o") -- Continue comments when pressing o or O
+
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+	pattern = "__FLUTTER_DEV_LOG__",
+	callback = function()
+		vim.opt_local.spell = false
+	end,
+})
