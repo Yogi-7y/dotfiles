@@ -14,5 +14,77 @@
   {
     "key": "ctrl+j",
     "command": "workbench.action.navigateDown"
+  },
+  {
+    "key": "space s b",
+    "command": "workbench.action.showAllEditors"
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+  },
+  {
+    "key": "ctrl+e",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+  },
+  {
+    "key": "tab",
+    "command": "workbench.action.nextEditorInGroup",
+    "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus)"
+  },
+  {
+    "key": "shift+tab",
+    "command": "workbench.action.previousEditorInGroup",
+    "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus)"
+  },
+
+  // Coding
+  {
+    "key": "shift-k",
+    "command": "editor.action.showHover",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "key": "space c a",
+    "command": "editor.action.codeAction",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "key": "space c r",
+    "command": "editor.action.rename",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
+  {
+    "key": "space c s",
+    "command": "workbench.action.gotoSymbol",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
   }
+  {
+    "key": "space b d",
+    "command": "workbench.action.closeActiveEditor",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  }
+  {
+    "key": "space s f",
+    "command": "workbench.action.quickOpen",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+  }
+  {
+    "key": "space g d",
+    "command": "editor.action.revealDefinition",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  }
+  {
+    "key": "space g r",
+    "command": "editor.action.goToReferences",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  }
+  {
+    "key": "space s g",
+    "command": "workbench.action.findInFiles",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+  }
+  {
+    "key": "ctrl-n",
+    "command": "editor.action.addSelectionToNextFindMatch",
+    "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus)"
+  },
 ]
