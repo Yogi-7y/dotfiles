@@ -17,7 +17,7 @@
   },
   {
     "key": "space s b",
-    "command": "workbench.action.showAllEditors"
+    "command": "workbench.action.showAllEditorsByMostRecentlyUsed",
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
   },
   {
@@ -38,6 +38,16 @@
 
   // Coding
   {
+    "key": "ctrl+y",
+    "command": "editor.action.inlineSuggest.commit",
+    "when": "inlineSuggestionVisible && !editorReadonly"
+  },
+  {
+    "key": "ctrl+y",
+    "command": "acceptSelectedSuggestion",
+    "when": "suggestWidgetVisible && textInputFocus"
+  },
+  {
     "key": "shift-k",
     "command": "editor.action.showHover",
     "when": "vim.mode == 'Normal' && editorTextFocus"
@@ -56,36 +66,36 @@
     "key": "space c s",
     "command": "workbench.action.gotoSymbol",
     "when": "vim.mode == 'Normal' && editorTextFocus"
-  }
+  },
   {
     "key": "space b d",
     "command": "workbench.action.closeActiveEditor",
     "when": "vim.mode == 'Normal' && editorTextFocus"
-  }
+  },
   {
     "key": "space s f",
     "command": "workbench.action.quickOpen",
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
-  }
+  },
   {
     "key": "space g d",
     "command": "editor.action.revealDefinition",
     "when": "vim.mode == 'Normal' && editorTextFocus"
-  }
+  },
+  {
+    "key": "space g i",
+    "command": "editor.action.goToImplementation",
+    "when": "vim.mode == 'Normal' && editorTextFocus"
+  },
   {
     "key": "space g r",
     "command": "editor.action.goToReferences",
     "when": "vim.mode == 'Normal' && editorTextFocus"
-  }
+  },
   {
     "key": "space s g",
     "command": "workbench.action.findInFiles",
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
-  }
-  {
-    "key": "ctrl-n",
-    "command": "editor.action.addSelectionToNextFindMatch",
-    "when": "(vim.mode == 'Normal' || vim.mode == 'Visual') && (editorTextFocus || !inputFocus)"
   },
   // Debugging
   {
@@ -96,12 +106,13 @@
   {
     "key": "space d c",
     "command": "editor.debug.action.runToCursor",
+
     "when": "vim.mode == 'Normal' && editorTextFocus"
   },
   {
     "key": "space d d",
-    "command": "workbench.action.debug.continue",
-    "when": "vim.mode == 'Normal' && debuggable"
+    "command": "workbench.action.debug.start",
+    "when": "vim.mode == 'Normal'"
   },
   {
     "key": "6",
