@@ -10,9 +10,9 @@ $golang\
 $haskell\
 $rust\
 $ruby\
-$aws\
 $docker_context\
 $jobs\
+$dart\
 $cmd_duration\
 $line_break\
 $character"""
@@ -23,7 +23,7 @@ palette = "nord"
 [directory]
 style = 'bold fg:dark_blue'
 format = '[$path ]($style)'
-truncation_length = 3
+truncation_length = 1
 truncation_symbol = '…/'
 truncate_to_repo = false
 
@@ -44,6 +44,14 @@ format = '([$all_status$ahead_behind]($style) )'
 
 [fill]
 symbol = ' '
+
+[dart]
+format = "[ $version](bold fg:blue) "
+detect_files = ["pubspec.yaml", ".dart_tool"]
+detect_extensions = ["dart"]
+version_format = "v${raw}"
+style = 'teal'
+symbol = ''
 
 [python]
 style = 'teal'
@@ -78,11 +86,6 @@ symbol = ' '
 [package]
 symbol = '󰏗 '
 
-[aws]
-symbol = ' '
-style = 'yellow'
-format = '[$symbol($profile )(\[$duration\] )]($style)'
-
 [docker_context]
 symbol = ' '
 style = 'fg:#06969A'
@@ -97,7 +100,7 @@ number_threshold = 1
 format = '[$symbol]($style)'
 
 [cmd_duration]
-min_time = 500
+min_time = 0
 style = 'fg:gray'
 format = '[$duration]($style)'
 
