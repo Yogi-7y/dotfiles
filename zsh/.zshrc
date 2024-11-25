@@ -32,6 +32,11 @@ if [[ -f ~/.dvm/scripts/dvm ]]; then
   . ~/.dvm/scripts/dvm
 fi
 
+# Enable Homebrew completions
+if type brew &>/dev/null; then
+    FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+fi
+
 # Path modifications (after DVM but before other tools)
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 export PATH="$PATH:$ANDROID_HOME/emulator"
