@@ -77,8 +77,7 @@ return {
 			local fzf = require("fzf-lua")
 
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Show hover information" })
-			vim.keymap.set("n", "<leader>gd", fzf.lsp_definitions, { desc = "Go to definition" })
-			vim.keymap.set("n", "<leader>gt", fzf.lsp_typedefs, { desc = "Go to type definition" })
+			vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { desc = "Go to definition" })
 			vim.keymap.set("n", "<leader>gi", fzf.lsp_implementations, { desc = "Go to implementation" })
 			vim.keymap.set("n", "<leader>gr", fzf.lsp_references, { desc = "Find references" })
 			vim.keymap.set("n", "<leader>ds", fzf.lsp_document_symbols, { desc = "Document symbols" })
