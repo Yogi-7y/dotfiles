@@ -16,7 +16,8 @@ return {
 			current_line_blame_formatter = "       <author>, <author_time:%R> • <summary>",
 		})
 
-		vim.keymap.set("n", "<leader>gp", gitsigns.preview_hunk, { desc = "Preview git hunk" })
-		vim.keymap.set("n", "<leader>gt", gitsigns.toggle_current_line_blame, { desc = "Toggle git blame" })
+		vim.keymap.set("n", "<leader>vhp", gitsigns.preview_hunk, { desc = "Preview git hunk" })
+		vim.keymap.set("n", "<leader>vhr", gitsigns.reset_hunk, { desc = "Reset git hunk" })
+		vim.keymap.set("n", "<leader>vt", gitsigns.toggle_current_line_blame, { desc = "Toggle git blame" })
 	end,
 }
