@@ -27,7 +27,7 @@ return {
 			widget_guides = { enabled = true },
 			dev_log = {
 				enabled = true,
-				open_cmd = "tabedit",
+				open_cmd = "botright split",
 				filter = function(line)
 					if line:match("^D/EGL") then
 						return false
