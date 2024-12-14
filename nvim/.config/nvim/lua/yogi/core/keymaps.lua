@@ -26,3 +26,7 @@ keymap.set("n", "<c-l>", ":wincmd l<CR>", { desc = "Move to the right pane" })
 
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 keymap.set("n", "<leader>bb", require("yogi.utils.toogle_boolean").toogle, { desc = "Toogle boolean" })
+
+-- Add these to your keymaps.lua
+keymap.set("n", "<M-j>", "3<C-e>", { desc = "Scroll down (screen)" }) -- Alt-j to scroll down
+keymap.set("n", "<M-k>", "3<C-y>", { desc = "Scroll up (screen)" }) -- Alt-k to scroll up
