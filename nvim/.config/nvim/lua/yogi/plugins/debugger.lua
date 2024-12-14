@@ -123,10 +123,10 @@ return {
 			vim.cmd("redraw")
 		end, { desc = "Continue debugging" })
 
-		vim.keymap.set("n", "6", dap.step_into, { desc = "Step into" })
-		vim.keymap.set("n", "7", dap.step_over, { desc = "Step over" })
-		vim.keymap.set("n", "8", dap.step_out, { desc = "Step out" })
-		vim.keymap.set("n", "9", dap.restart, { desc = "Restart" })
+		-- vim.keymap.set("n", "6", dap.step_into, { desc = "Step into" })
+		-- vim.keymap.set("n", "7", dap.step_over, { desc = "Step over" })
+		-- vim.keymap.set("n", "8", dap.step_out, { desc = "Step out" })
+		-- vim.keymap.set("n", "9", dap.restart, { desc = "Restart" })
 
 		vim.keymap.set("n", "<leader>du", dapui.open, { desc = "Open DAP UI" })
 		vim.keymap.set("n", "<leader>ds", toggle_sidebar, { desc = "Toggle sidebar" })
