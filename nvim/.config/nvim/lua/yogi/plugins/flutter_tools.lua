@@ -5,7 +5,6 @@ return {
 		"nvim-lua/plenary.nvim",
 	},
 	config = function()
-		vim.notify("configuring flutter-tools")
 		local flutter_tools = require("flutter-tools")
 		local dart_utils = require("yogi.utils.dart")
 
