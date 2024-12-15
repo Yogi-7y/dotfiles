@@ -61,6 +61,7 @@ return {
 						["--delimiter"] = ":",
 						["--with-nth"] = "1",
 					},
+					rg_opts = "--hidden --column --line-number --color=always --smart-case",
 				},
 				winopts = {
 					preview = {
