@@ -27,8 +27,13 @@ opt.termguicolors = true
 opt.background = "dark"
 
 -- Fold
-opt.foldmethod = "indent"
-opt.foldenable = false
+-- opt.foldmethod = "indent"
+-- opt.foldenable = false
+
+opt.foldcolumn = "0" -- '0' is not bad
+opt.foldlevel = 99 -- Using ufo provider need a large value
+opt.foldlevelstart = 99
+opt.foldenable = true
 
 opt.clipboard:append("unnamedplus") -- Use system clipboard
 
