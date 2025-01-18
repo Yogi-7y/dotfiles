@@ -66,5 +66,6 @@ stow starship
 stow wezterm
 stow tmux
 stow zsh
+stow git
 
 echo "Installation complete! Please restart your terminal or run 'source ~/.zshrc' to apply changes."
