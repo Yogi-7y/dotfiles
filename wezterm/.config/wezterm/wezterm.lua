@@ -12,4 +12,12 @@ config = {
 	font = wezterm.font("JetBrains Mono", { weight = "Medium" }),
 }
 
+config.keys = {
+	{
+		key = "k",
+		mods = "CMD",
+		action = wezterm.action.SendString("clear\n"),
+	},
+}
+
 return config
