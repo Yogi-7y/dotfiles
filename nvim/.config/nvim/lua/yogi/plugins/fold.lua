@@ -7,12 +7,6 @@ return {
 	config = function()
 		local ufo = require("ufo")
 
-		local capabilities = vim.lsp.protocol.make_client_capabilities()
-		capabilities.textDocument.foldingRange = {
-			dynamicRegistration = false,
-			lineFoldingOnly = true,
-		}
-		-- Add this fold handler function
 		local handler = function(virtText, lnum, endLnum, width, truncate)
 			local newVirtText = {}
 			local suffix = (" ↙ %d "):format(endLnum - lnum)
