@@ -4,4 +4,4 @@ if ! pgrep -q "Raycast"; then
     exit 0
 fi
 
-open 'raycast://confetti'
+open -g 'raycast://confetti'
